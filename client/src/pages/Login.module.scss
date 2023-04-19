@@ -14,9 +14,21 @@
     background-color: white;
     box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.3);
 
+    h3 {
+      margin-top: 9px;
+    }
+
     label {
       font-weight: 600;
       font-size: 12px;
+    }
+
+    input {
+      padding: 3px 10px;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 
