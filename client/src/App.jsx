@@ -1,24 +1,11 @@
-import { Route, Routes } from "react-router-dom";
-
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import ShoppingCart from "./pages/ShoppingCart";
-import Orders from "./pages/Orders";
-
-import Layout from "./components/shared/Layout";
+import Navbar from "./components/shared/Navbar";
+import Router from "./routes/Router";
 
 function App() {
   return (
     <div className="App">
-      <Layout />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/cart" element={<ShoppingCart />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <Navbar />
+      <Router />
     </div>
   );
 }
