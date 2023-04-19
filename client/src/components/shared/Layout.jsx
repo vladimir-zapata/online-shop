@@ -28,7 +28,7 @@ const Layout = () => {
                 </Link>
               </li>
             </ul>
-            <span class="navbar-item mx-2">
+            <span class="navbar-item mx-3">
               <Link class="nav-link" to="/orders">
                 Admin
               </Link>
@@ -37,7 +37,7 @@ const Layout = () => {
               <Link class="nav-link " to="/cart">
                 <div className="d-flex align-items-center">
                   <div className="d-flex">
-                    <div className="d-none d-lg-block position-relative mx-2">
+                    <div className="d-none d-lg-block position-relative mx-3">
                       <Cart2
                         className="d-sm-none d-lg-block"
                         color="black"
