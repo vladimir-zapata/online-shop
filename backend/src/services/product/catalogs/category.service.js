@@ -8,3 +8,12 @@ export const getAllCategories = async () => {
         return null;
     }
 };
+
+export const addCategory = async (name) => {
+    try {
+        return await Category.create({ name });
+    } catch (error) {
+        console.log(error.message);
+        return null;
+    }
+};

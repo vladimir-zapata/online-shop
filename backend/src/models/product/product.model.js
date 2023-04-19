@@ -24,6 +24,7 @@ const Product = sequelize.define('Product', {
     available: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: true
     }
   });
 

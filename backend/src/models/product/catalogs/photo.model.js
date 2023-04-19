@@ -12,7 +12,8 @@ const Photo = sequelize.define('Photo', {
     },
     url: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     }
   });
 
