@@ -1,19 +1,26 @@
 import * as Service from "../../services/user/user.service";
-import * as Validation from "../../validations/users/user.validations";
 
-export const registerUser = async (req, res) => {
-    const { fullName, email, password } = req.body;
+export const getUsers = async (req, res) => {
+    const users = await Service.getAllUsers();
 
-    if(!Validation.validateNewUserRequest(fullName, email, password)) return res.sendStatus(400);
-    const emailAlreadyRegistered = await Service.getUserByEmail(email);
-    
-    if (emailAlreadyRegistered !== null)
-        return res.status(400).json({ message: "User already registered" });
+    if (users === null) return res.sendStatus(500);
 
-    const user = await Service.registerUser(fullName, email, password);
-    if(user === null) return res.sendStatus(500);
+    const userList = [];
 
-    return res.status(201).end();
+    const mappedUsers = users.map((usr) => {
+        const user = usr.get();
+
+        userList.push({
+            id: user.id,
+            fullName: user.fullName,
+            email: user.email,
+            role: user.role,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
+        });
+
+        return userList[userList.length - 1];
+    });
+
+    return res.status(200).json(mappedUsers);
 };
-
-export const getUsers = (req, res) => res.send("Getting users");

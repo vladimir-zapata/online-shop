@@ -1,0 +1,1 @@
+export const getCategories = (req, res) => res.send("Getting categories");

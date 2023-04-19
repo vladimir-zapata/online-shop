@@ -1,0 +1,1 @@
+export const getPhotos = (req, res) => res.send("Getting photos");

@@ -1,0 +1,1 @@
+export const getSizes = (req, res) => res.send("Getting sizes");
