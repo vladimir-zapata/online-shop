@@ -31,7 +31,7 @@ const Router = () => {
       <Route
         path="/cart"
         element={
-          <ProtectedRoute isAuthenticated={true}>
+          <ProtectedRoute isAuthenticated={false}>
             <ShoppingCart />
           </ProtectedRoute>
         }

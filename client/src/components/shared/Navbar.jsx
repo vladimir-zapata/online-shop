@@ -4,7 +4,7 @@ import { Cart2 } from "react-bootstrap-icons";
 const Navbar = () => {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary shadow">
+      <nav className="bg-white navbar navbar-expand-lg bg-body-tertiary shadow">
         <div className="container-fluid">
           <Link className="nav-link fw-bold" to="/">
             Online Store
