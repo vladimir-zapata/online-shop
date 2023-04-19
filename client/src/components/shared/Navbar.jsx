@@ -1,10 +1,24 @@
 import { Link } from "react-router-dom";
 import { Cart2 } from "react-bootstrap-icons";
 
+import { useNavigate } from "react-router-dom";
+
+import styles from "./Navbar.module.scss";
+
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+
+    navigate("/");
+  };
+
   return (
-    <header>
-      <nav className="bg-white navbar navbar-expand-lg bg-body-tertiary shadow">
+    <header
+      className={`"position-sticky top-0 bg-white" ${styles.header_container}`}
+    >
+      <nav className="bg-white navbar navbar-expand-lg bg-body-tertiary shadow-sm">
         <div className="container-fluid">
           <Link className="nav-link fw-bold" to="/">
             Online Store
@@ -53,9 +67,13 @@ const Navbar = () => {
               </Link>
             </span>
             <span className="navbar-item mx-4">
+              {/*TODO: CONDITIONAL RENDER LOG IN AND LOG OUT*/}
               <Link className="nav-link" to="/login">
                 Login
               </Link>
+              {/* <button onClick={handleLogout} className="nav-link" to="/login">
+                Logout
+              </button> */}
             </span>
           </div>
         </div>

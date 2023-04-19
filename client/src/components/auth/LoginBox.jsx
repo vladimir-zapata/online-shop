@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
-
 import { PeopleFill } from "react-bootstrap-icons";
 
 const LoginBox = ({ handler, styles }) => {
+  const handleLogin = (jwt) => {};
+
   return (
     <div className={`${styles.login_box} p-5`}>
       <PeopleFill color="black" size={42} />
       <h3>Log In</h3>
-      <form className="mt-2 w-100">
+      <form onSubmit={handleLogin} className="mt-2 w-100">
         <div className="w-100">
           <label htmlFor="email">Email</label>
           <br />

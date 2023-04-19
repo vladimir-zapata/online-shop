@@ -1,5 +1,3 @@
-import { PeopleFill } from "react-bootstrap-icons";
-
 const RegisterBox = ({ handler, styles }) => {
   return (
     <div className={`${styles.login_box} p-5`}>
@@ -11,9 +9,9 @@ const RegisterBox = ({ handler, styles }) => {
           <input id="email" className="my-1 w-100" type="text" />
         </div>
         <div className="w-100">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="registerEmail">Email</label>
           <br />
-          <input id="email" className="my-2 w-100" type="email" />
+          <input id="registerEmail" className="my-2 w-100" type="email" />
         </div>
         <div className="w-100">
           <label htmlFor="password">Password</label>
