@@ -7,11 +7,13 @@ import Orders from "../pages/Orders";
 import Admin from "../pages/Admin";
 
 import ProtectedRoute from "./ProtectedRoute";
+import ProductDetails from "../pages/ProductDetails";
 
 const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Products />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
       <Route
         path="/admin"
         element={
