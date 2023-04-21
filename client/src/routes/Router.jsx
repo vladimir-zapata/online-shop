@@ -9,38 +9,42 @@ import Admin from "../pages/Admin";
 import ProtectedRoute from "./ProtectedRoute";
 import ProductDetails from "../pages/ProductDetails";
 
+import { useSelector } from "react-redux";
+
 const Router = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Products />} />
-      <Route path="/product/:id" element={<ProductDetails />} />
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute isAuthenticated={false}>
-            <Admin />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/orders"
-        element={
-          <ProtectedRoute isAuthenticated={false}>
-            <Orders />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/cart"
-        element={
-          <ProtectedRoute isAuthenticated={false}>
-            <ShoppingCart />
-          </ProtectedRoute>
-        }
-      />
-      <Route path="/login" element={<Login />} />
-    </Routes>
-  );
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+    return (
+        <Routes>
+            <Route path="/" element={<Products />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route
+                path="/admin"
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <Admin />
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/orders"
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <Orders />
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/cart"
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ShoppingCart />
+                    </ProtectedRoute>
+                }
+            />
+            <Route path="/login" element={<Login />} />
+        </Routes>
+    );
 };
 
 export default Router;

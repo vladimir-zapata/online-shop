@@ -14,13 +14,13 @@ const ProductDetails = () => {
         <div className="col-md-6">
           <Carousel cols={1} rows={1} gap={10} loop>
             <Carousel.Item>
-              <img width="100%" src="https://picsum.photos/800/600?random=1" />
+              <img alt="random" width="100%" src="https://picsum.photos/800/600?random=1" />
             </Carousel.Item>
             <Carousel.Item>
-              <img width="100%" src="https://picsum.photos/800/600?random=2" />
+              <img alt="random" width="100%" src="https://picsum.photos/800/600?random=2" />
             </Carousel.Item>
             <Carousel.Item>
-              <img width="100%" src="https://picsum.photos/800/600?random=3" />
+              <img alt="random" width="100%" src="https://picsum.photos/800/600?random=3" />
             </Carousel.Item>
             <Carousel.Item>
               {/* anything you want to show in the grid */}

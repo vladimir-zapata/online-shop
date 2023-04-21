@@ -1,31 +1,34 @@
-import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
+import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+const ProtectedRoute = ({ isAuthenticated, children }) => {
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
+
+    const authenticate = () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+          return;
+      }
+
       const decodedToken = jwt_decode(token);
       const currentTime = Date.now() / 1000;
-      if (decodedToken.exp < currentTime) {
-        localStorage.removeItem("jwt");
-        setIsAuthenticated(false);
-      } else {
-        setIsAuthenticated(true);
+
+      if (!(currentTime < decodedToken.exp)) {
+          localStorage.removeItem("token");
+          return;
       }
-    } else {
-      setIsAuthenticated(false);
     }
-  }, []);
 
-  if (isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
+    authenticate();
+    }, []);
 
-  return children;
+    if (!isAuthenticated) {
+        return <Navigate to="/login" />;
+    }
+
+    return children;
 };
 
 export default ProtectedRoute;
